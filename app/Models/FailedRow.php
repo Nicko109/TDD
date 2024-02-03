@@ -10,4 +10,11 @@ class FailedRow extends Model
     use HasFactory;
 
     protected $guarded = false;
+
+    public static function insertFailedRows($items)
+    {
+        foreach ($items as $item) {
+            FailedRow::create($item);
+        }
+    }
 }
