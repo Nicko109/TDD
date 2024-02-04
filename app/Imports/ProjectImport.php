@@ -110,7 +110,7 @@ class ProjectImport implements ToCollection, WithHeadingRow, WithValidation, Ski
         return [
             'tip' => 'required|string',
             'naimenovanie' => 'required|string',
-            'data_sozdaniia' => 'required|string',
+            'data_sozdaniia' => 'required|integer',
             'podpisanie_dogovora' => 'required|integer',
             'dedlain' => 'nullable|integer',
             'setevik' => 'nullable|string',
