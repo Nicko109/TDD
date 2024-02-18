@@ -33,9 +33,11 @@ class ProjectController extends Controller
         $task = Task::create([
             'file_id' => $file->id,
             'user_id' => auth()->id(),
+            'type' => $data['type'],
 
         ]);
 
-        ImportProjectExcelFileJob::dispatch($file->path, $task);
+        ImportProjectExcelFileJob::dispatch($file->path, $task)->onQueue('imports');
+        return redirect()->back()->with(['message' => 'Excel import in process']);
     }
 }

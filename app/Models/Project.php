@@ -12,17 +12,7 @@ class Project extends Model
 
     protected $guarded = false;
     protected $with = ['type'];
-//    protected $dates = ['created_at_time', 'contracted_at', 'deadline'];
-
-    public function getFormattedCreatedAtTimeAttribute($value)
-    {
-        return Carbon::parse($this->created_at_time)->format('d.m.y');
-    }
-
-    public function getFormattedContractedAtAttribute($value)
-    {
-        return Carbon::parse($this->contracted_at)->format('d.m.y');
-    }
+    protected $casts = ['created_at_time' => 'date', 'contracted_at' => 'date'];
 
     public function getFormattedDeadlineAttribute($value)
     {
